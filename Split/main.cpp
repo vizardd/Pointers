@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 #define tab "\t"
@@ -21,23 +21,23 @@ void main() {
 		arr[i] % 2 == 0 ? even_count++ : odd_count++;
 	}
 	cout << endl;
-	cout << "Êîëè÷åñòâî ÷åòíûõ ýëåìåíòîâ: " << even_count << endl;
-	cout << "Êîëè÷åñòâî íå ÷åòíûõ ýëåìåíòîâ: " << odd_count << endl;
-	//âûäåëÿåì ïàìÿòü äëÿ ìàññèâà
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: " << even_count << endl;
+	cout << "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð½Ðµ Ñ‡ÐµÑ‚Ð½Ñ‹Ñ… ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: " << odd_count << endl;
+	//Ð²Ñ‹Ð´ÐµÐ»ÑÐµÐ¼ Ð¿Ð°Ð¼ÑÑ‚ÑŒ Ð´Ð»Ñ Ð¼Ð°ÑÑÐ¸Ð²Ð°
 	int* even_arr = new int[even_count];
 	int* odd_arr = new int[odd_count];
-	//êîïèðóåì ÷åòíûå è íå÷åòíûå ýëåìåíòû â ñîîòâåòñòâóþùèå ìàññèâû:
+	//ÐºÐ¾Ð¿Ð¸Ñ€ÑƒÐµÐ¼ Ñ‡ÐµÑ‚Ð½Ñ‹Ðµ Ð¸ Ð½ÐµÑ‡ÐµÑ‚Ð½Ñ‹Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ Ð² ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ðµ Ð¼Ð°ÑÑÐ¸Ð²Ñ‹:
 	for (int i = 0, j = 0, k = 0; i < n; i++) {
 		//if (arr[i] % 2 == 00)even_arr[j++] = arr[i];
 		//else odd_arr[k++] = arr[i];
 		//(arr[i] % 2 == 0 ? even_arr[j++] : odd_arr[k++]) = arr[i];
 		(arr[i] % 2 ? odd_arr[k++] : even_arr[j++]) = arr[i];
 	}
-	//Âûâîä ðåçóëüòàòîâ
+	//Ð’Ñ‹Ð²Ð¾Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ð¾Ð²
 	Print(even_arr, even_count);
 	cout << endl;
 	Print(odd_arr, odd_count);
-	//óäàëåíèå ìàñèâîâ
+	//ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð°ÑÐ¸Ð²Ð¾Ð²
 	delete[] odd_arr;
 	delete[] even_arr;
 }
