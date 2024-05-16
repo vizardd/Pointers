@@ -17,8 +17,8 @@ void main() {
 	int even_count = 0;
 	int odd_count = 0;
 	for (int i = 0; i < n; i++) {
-		if (arr[i] % 2 == 0)even_count++;
-		else odd_count++;
+		//if (arr[i] % 2 == 0)even_count++;else odd_count++;
+		arr[i] % 2 == 0 ? even_count++ : odd_count++;
 	}
 	cout << endl;
 	cout << "Количество четных элементов: " << even_count << endl;
@@ -28,14 +28,10 @@ void main() {
 	int* odd_arr = new int[odd_count];
 	//копируем четные и нечетные элементы в соответствующие массивы:
 	for (int i = 0, j = 0, k = 0; i < n; i++) {
-		if (arr[i] % 2 == 00) {
-			even_arr[j] = arr[i];
-			j++;
-		}
-		else {
-			odd_arr[k] = arr[i];
-			k++;
-		}
+		//if (arr[i] % 2 == 00)even_arr[j++] = arr[i];
+		//else odd_arr[k++] = arr[i];
+		//(arr[i] % 2 == 0 ? even_arr[j++] : odd_arr[k++]) = arr[i];
+		(arr[i] % 2 ? odd_arr[k++] : even_arr[j++]) = arr[i];
 	}
 	//Вывод результатов
 	Print(even_arr, even_count);
