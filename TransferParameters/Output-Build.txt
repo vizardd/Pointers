@@ -1,0 +1,8 @@
+﻿Build started at 10:05...
+1>------ Build started: Project: Split, Configuration: Debug x64 ------
+1>main.cpp
+1>C:\Users\Viktor\source\repos\vizardd\Pointers\Split\main.cpp(5,13): warning C4326: return type of 'main' should be 'int' instead of 'void'
+1>Split.vcxproj -> C:\Users\Viktor\source\repos\vizardd\Pointers\x64\Debug\Split.exe
+1>Done building project "Split.vcxproj".
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 10:05 and took 03,359 seconds ==========
