@@ -89,9 +89,7 @@ int* push_back(int arr[], int& n, int value) {
 
 int* push_front(int arr[], int& n, int value) {
 	int* buffer = new int[n + 1];
-	for (int i = 0; i < n; i++) {
-		buffer[i + 1] = arr[i];
-	}
+	for (int i = 0; i < n; i++) buffer[i + 1] = arr[i];
 	delete arr;
 	buffer[0] = value;
 	n++;
