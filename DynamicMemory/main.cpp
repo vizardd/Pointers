@@ -6,8 +6,10 @@ using namespace std;
 
 
 void FillRand(int* arr, const int n);
+void FillRand(int** arr, const int rows, const int cols);
 
 void Print(int* arr, const int n);
+void Print(int** arr, const int rows, const int cols);
 
 int* push_back(int arr[], int& n, int value);
 
@@ -21,8 +23,12 @@ int* insert(int* arr, int& n, int value, int index);
 
 int* erease(int* arr, int& n, int index);
 
+//#define DYNAMIC_MEMORY_1
+#define DYNAMIC_MEMORY_2
+
 void main() {
 	setlocale(LC_ALL, "");
+#ifdef DYNAMIC_MEMORY_1
 	int n;
 	cout << "Введите размер масива: "; cin >> n;
 	int* arr = new int[n];
@@ -52,12 +58,48 @@ void main() {
 	arr = erease(arr, n, index);
 	Print(arr, n);
 	delete[] arr;
+#endif //DYNAMIC_MEMORY_1
+
+#ifdef DYNAMIC_MEMORY_2
+	int rows;
+	int cols;
+	cout << "Введите количество строк: "; cin >> rows;
+	cout << "Введите количество элементов строки: "; cin >> cols;
+	//Создаюм массив указатей
+	int** arr = new int* [rows];
+	//Выделяем память под строки
+	for (int i = 0; i < rows; i++) {
+		arr[i] = new int[cols] {};
+	}
+
+	FillRand(arr, rows, cols);
+	Print(arr, rows, cols);
+
+	//сначала удаляем строки
+	for (int i = 0; i < rows; i++) {
+		delete[] arr[i];
+	}
+	//удаляем массив
+	delete arr;
+#endif //DYNAMIC_MEMORY_2
 }
 
 void FillRand(int* arr, const int n) {
 	for (int i = 0; i < n; i++) {
 		*(arr + i) = rand() % 100;
 	}
+}
+void FillRand(int** arr, const int rows, const int cols)
+
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			arr[i][j] = rand() % 100;
+		}
+	}
+
 }
 
 void Print(int* arr, const int n) {
@@ -67,11 +109,23 @@ void Print(int* arr, const int n) {
 	}
 	cout << endl;
 }
+void Print(int** arr, const int rows, const int cols)
+{
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			cout << arr[i][j] << tab;
+		}
+		cout << endl;
+	}
+	cout << endl;
+}
 
 int* push_back(int arr[], int& n, int value) {
 	//создаюм буферный массив;
 	int* buffer = new int[n + 1];
-	//копирую\ем значения из исходного масcива в буферный масcив;
+	//копируюем значения из исходного масcива в буферный масcив;
 	for (int i = 0; i < n; i++) {
 		buffer[i] = arr[i];
 	}
@@ -122,7 +176,6 @@ int* insert(int* arr, int& n, int value, int index) {
 	delete[] arr;
 	return buffer;
 }
-
 
 int* erease(int* arr, int& n, int index) {
 	int* buffer = new int[n];
